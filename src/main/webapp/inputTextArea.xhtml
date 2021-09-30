@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html     xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Input Text Area</title>    
+    </h:head>
+    <h:body>
+        <h:form>
+        <h:outputText value="Input text area sample"/>
+        <br/>
+        <p:inputTextarea rows="10" cols="50" minQueryLength="3" completeMethod="#{ripples.completeArea}" queryDelay="1000" />
+        <br/>
+        <p:inputTextarea rows="10" cols="50" counter="display" maxlength="10" counterTemplate="{0} remaing left" />
+        <br/>
+        <h:outputText id="display"/>
+        </h:form>
+    </h:body>
+</html>
