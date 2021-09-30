@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Select Checkbox Menu</title>    
+    </h:head>
+    <h:body>
+        Select Boolean Checkbox Menu
+        <br/>
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel for="menu" value="Menu"/>
+                <p:selectCheckboxMenu id="menu" value="#{selectCheckBoxMenu.selectColors}" label="Colors"
+                                      updateLabel="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+
+                    <f:selectItems value="#{selectCheckBoxMenu.colors}"/>
+                </p:selectCheckboxMenu>
+                <p:outputLabel for="multiple" value="Multiple"/>
+                <p:selectCheckboxMenu id="multiple" value="#{selectCheckBoxMenu.selectColors2}" label="Cities"
+                                      multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+
+                    <f:selectItems value="#{selectCheckBoxMenu.colors}"/>
+                </p:selectCheckboxMenu>
+                <p:outputLabel for="gruped" value="Grouped"/>
+                <p:selectCheckboxMenu id="gruped" value="#{selectCheckBoxMenu.selectPrimaryColor}" label="Group"
+                                      updateLabel="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+
+                    <f:selectItems value="#{selectCheckBoxMenu.primaryColors}"/>
+                </p:selectCheckboxMenu>
+
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
