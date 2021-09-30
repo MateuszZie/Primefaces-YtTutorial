@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Select Boolean Checkbox</title>    
+    </h:head>
+    <h:body>
+        Select Boolean Checkbox Example
+        <br/>
+        <h:form>
+            <p:growl id="msg" />
+            <h:panelGrid columns="2" cellpadding="5">            
+                <p:selectBooleanCheckbox itemLabel=" Accept" value="#{sbc.check}">
+                    <p:ajax update="msg" listener="#{sbc.addMessage()}"/>
+                </p:selectBooleanCheckbox>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
