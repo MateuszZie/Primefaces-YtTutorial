@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Panel Menu</title>    
+    </h:head>
+    <h:body>
+        Panel Menu
+        <br/>
+        <h:form>
+            <p:growl showDetail="true" >
+                <p:autoUpdate/>
+            </p:growl>
+            <p:panelMenu style="width: 300px">
+                <p:submenu label="With Ajax">
+                    <p:menuitem value="file" action="#{panelMenu.file}"/>
+                    <p:menuitem value="edit" action="#{panelMenu.edit}"/>
+                </p:submenu>
+                <p:submenu label="Without Akax">
+                    <p:menuitem value="view" action="#{panelMenu.view}" ajax="false"/>
+                </p:submenu>
+                <p:submenu label="Courses">
+                    <p:submenu label="Riples Code">
+                        <p:submenu label="Tutorials">
+                            <p:menuitem value="Home" url="http://localhost:8080/Primefaces-YtTutorial/"/>
+                            <p:menuitem value="Java" url="https://www.udemy.com/certificate/UC-4bedd3a4-24e3-4e9c-bc22-bb2447c3f100/"/>
+                            <p:menuitem value="Sprng" url="https://www.udemy.com/certificate/UC-5337ba25-e124-48d8-bbe7-b1e3c60b80d6/"/>
+                            <p:menuitem value="Java EE" url="https://www.udemy.com/certificate/UC-05322145-952f-48cc-9af2-74d0fc6e7a86/"/>
+                        </p:submenu>
+                    </p:submenu>
+                </p:submenu>
+            </p:panelMenu>
+        </h:form>
+    </h:body>
+</html>
