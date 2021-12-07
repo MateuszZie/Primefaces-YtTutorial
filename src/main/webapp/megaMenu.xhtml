@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Bar Chart</title>    
+    </h:head>
+    <h:body>
+        Bar Chart Example
+        <br/>
+        <h:form id="form">
+            <h:panelGrid>
+                <p:outputLabel for="orientation" value="Oreintation:"/>
+                <p:selectOneButton id="orientation" value="#{megaMenu.orientation}" onchange="$('#form').submit()">
+                    <f:selectItem itemLabel="Horizontal" itemValue="horizontal"/>
+                    <f:selectItem itemLabel="Vertical" itemValue="vertical"/>
+                </p:selectOneButton>
+            </h:panelGrid>
+        </h:form>
+        <p:megaMenu orientation="#{megaMenu.orientation}" style="margin-top: 40px">
+            <p:submenu label="Electronics">
+                <p:column>
+                    <p:submenu label="Mobile">
+                        <p:menuitem value="Mobile-1" url="#"/>
+                        <p:menuitem value="Mobile-2" url="#"/>
+                    </p:submenu>
+                    <p:submenu label="AC">
+                        <p:menuitem value="AC-1" url="#"/>
+                        <p:menuitem value="AC-2" url="#"/>
+                        <p:menuitem value="AC-3" url="#"/>
+                    </p:submenu>
+                </p:column>
+                <p:column>
+                    <p:submenu label="Freeze">
+                        <p:menuitem value="Freeze-1" url="#"/>
+                        <p:menuitem value="Freeze-2" url="#"/>
+                    </p:submenu>
+                    <p:submenu label="Laptop">
+                        <p:menuitem value="Laptop-1" url="#"/>
+                        <p:menuitem value="Laptop-2" url="#"/>
+                        <p:menuitem value="Laptop-3" url="#"/>
+                    </p:submenu>
+                </p:column>
+                <p:column>
+                    <strong>Image</strong>
+                    <h:graphicImage value="/resources/images/Icon.png" width="200px"/>
+                </p:column>
+            </p:submenu>
+            <p:menuitem value="quit" url="#"/>
+        </p:megaMenu>
+    </h:body>
+</html>
