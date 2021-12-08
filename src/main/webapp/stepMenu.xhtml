@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Step Menu</title>    
+    </h:head>
+    <h:body>
+        Step Menu
+        <br/>
+        <h:form>
+            <p:growl id="message" showDetail="true"/>
+            <p:steps activeIndex="2" readonly="false">
+                <p:menuitem value="Adress" action="#{stepMenu.adress}" update="message"/>
+                <p:menuitem value="Product" action="#{stepMenu.product}" update="message"/>
+                <p:menuitem value="Payment" action="#{stepMenu.payment}" update="message"/>
+                <p:menuitem value="Confirmation" action="#{stepMenu.confirmation}" update="message"/>
+            </p:steps>
+        </h:form>
+    </h:body>
+</html>
