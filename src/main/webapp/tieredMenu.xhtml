@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Tiered Menu</title>    
+    </h:head>
+    <h:body>
+        Tiered Menu
+        <br/>
+        <h:form>
+            <p:growl id="message" showDetail="true"/>
+            <p:tieredMenu>
+                <p:submenu label="With Ajax">
+                    <p:menuitem value="File" action="#{menu.file()}" update="message"/>
+                    <p:menuitem value="Edit" action="#{menu.edit()}" update="message"/>
+                </p:submenu>
+                <p:submenu label="Without Ajax">
+                    <p:menuitem value="View" action="#{menu.view}" update="message" ajax="false"/>                   
+                </p:submenu>
+                <p:submenu label="Tutorial">
+                    <p:menuitem value="JSF" url="#"/>
+                    <p:menuitem value="Prime Faces"/>
+                </p:submenu>
+            </p:tieredMenu>>
+        </h:form>
+    </h:body>
+</html>
