@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Overlay Panel</title>    
+    </h:head>
+    <h:body>
+        Overlay Panel
+        <br/>
+        <h:form>
+            <p:commandButton value="Image" type="button" id="imgbtn" />
+            <p:overlayPanel for="imgbtn" hideEvent="fade" style="width: 200px; height: 200px">
+                <p:graphicImage value="resources/images/Icon.png"/>
+            </p:overlayPanel> 
+                
+                            <br/>
+            
+            <p:commandButton value="Technology List" type="button" id="techbtn" />
+            <p:overlayPanel for="techbtn" hideEvent="fade" dynamic="true" style="width:  800px">
+                <p:dataTable var="tech" value="#{technologyList.technology}" rows="5" paginator="true">
+                    <p:column headerText="Name">
+                        <p:outputLabel value="#{tech.name}"/>
+                    </p:column>
+                    <p:column headerText="Developed By">
+                        <p:outputLabel value="#{tech.developedBy}"/>
+                    </p:column>
+                    <p:column headerText="Year">
+                        <p:outputLabel value="#{tech.year}"/>
+                    </p:column>               
+                </p:dataTable>
+            </p:overlayPanel>
+            
+            <br/>
+            
+            <p:commandButton value="Images List" type="button" id="imgsbtn" icon="pi pi-image" />
+            <p:overlayPanel for="imgsbtn" dismissable="true" showCloseIcon="true">
+                <p:imageSwitch effect="fade" style="width: 300px; height: 300px">
+                    <ui:repeat var="image" value="#{imageList.images}">
+                        <p:graphicImage value="resources/images/#{image}" width="300"/>
+                    </ui:repeat>
+                </p:imageSwitch>
+            </p:overlayPanel>
+                            
+                           
+        </h:form>
+    </h:body>
+</html>
