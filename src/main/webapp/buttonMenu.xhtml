@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Button Menu</title>    
+    </h:head>
+    <h:body>
+        Button Menu
+        <br/>
+        <h:form>
+            <p:growl id="message" showDetail="true"/>
+            <p:menuButton value="Options">
+                    <p:menuitem value="File" action="#{menu.file()}" update="message"/>
+                    <p:menuitem value="Edit" action="#{menu.edit()}" update="message"/>
+                    <p:menuitem value="View" action="#{menu.view}" update="message" ajax="false"/>       
+                    <p:separator/>
+                    <p:menuitem value="JSF Tutorial" url="#"/>
+            </p:menuButton>
+        </h:form>
+    </h:body>
+</html>
