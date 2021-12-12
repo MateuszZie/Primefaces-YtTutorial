@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Tool Tip</title>    
+    </h:head>
+    <h:body>
+        Tool Tip
+        <br/>
+        <h:form>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Example 1:"/>
+                <p:inputText id="focus" title="title display when input is focus"/>
+           
+                <p:outputLabel value="Example 2:"/>
+                <p:link id="fade" value="Prime Faces" href="#"/>
+
+                <p:outputLabel value="Example 3:"/>
+                <p:link id="track" value="Track Mouse" href="#"/>
+                
+                <p:outputLabel value="Example 4:"/>
+                <p:link id="grow" value="Clip/Explode Effect" href="#"/>
+                
+                <p:outputLabel value="Example 5:"/>
+                <p:link id="content" value="Star" href="#"/>
+                
+            </p:panelGrid>
+            <p:tooltip for="focus" showEvent="focus" hideEvent="blur"/> 
+            <p:tooltip for="fade" value="Current position is top" position="top"/>
+            <p:tooltip for="track" value="I will track your mouse" trackMouse="true"/>
+            <p:tooltip for="grow" value="Clip and Explod Animation" showEffect="clip" hideEffect="explode" position="right"/>
+            <p:tooltip for="content" position="bottom">
+                <p:graphicImage value="resources/images/smallStar.png"/>
+            </p:tooltip>
+        </h:form>
+    </h:body>
+</html>
