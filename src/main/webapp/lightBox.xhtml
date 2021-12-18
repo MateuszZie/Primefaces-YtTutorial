@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Light Box</title>    
+    </h:head>
+    <h:body>
+        Light Box Example
+        <br/>
+        <h:form>
+            <p:lightBox>
+                <p:link>
+                    <p:graphicImage value="/resources/images/smallStar.png" title="Small star" height="100px" width="100px"/>    
+                </p:link>
+                <p:link>
+                    <p:graphicImage value="/resources/images/star.png" title="Star" height="200px" width="200px"/>    
+                </p:link>
+                <p:link>
+                    <p:graphicImage value="/resources/images/largeStar.png" title="large star" height="300px" width="300px"/>    
+                </p:link>
+            </p:lightBox>
+            <h3>Inline</h3>
+            <p:lightBox>
+                <p:link>
+                    <p:outputLabel value="Content line"/>
+                </p:link>
+                <f:facet name="inline">
+                    <p:video value="https://www.w3schools.com/html/mov_bbb.mp4" width="400px" height="400px" player="mp4" controls="true"/>
+                </f:facet>
+            </p:lightBox>
+            <h3>Iframe</h3>
+            <p:lightBox iframe="true" >
+                <p:link title="Prmefaces chanel">
+                    <p:outputLabel value="Riples Code"/>
+                </p:link>
+            </p:lightBox>
+        </h:form>
+    </h:body>
+</html>
