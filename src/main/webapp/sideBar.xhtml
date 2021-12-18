@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Side Bar</title>    
+    </h:head>
+    <h:body>
+        Side Bar
+        <br/>
+        <h:form>
+            <p:commandButton value="Left" oncomplete="PF('sl1').show();"/>
+            <p:commandButton value="Right" oncomplete="PF('sl2').show();"/>
+            <p:commandButton value="Top" oncomplete="PF('sl3').show();"/>
+            <p:commandButton value="Bottom" oncomplete="PF('sl4').show();"/>
+            <p:commandButton value="Full Screen" oncomplete="PF('sl5').show();"/>
+            
+            <p:sidebar widgetVar="sl1">
+                <h1>Left Side</h1>
+                <p:commandButton value="Cancel" oncomplete="PF('sl1').hide();"/>
+            </p:sidebar>
+            <p:sidebar widgetVar="sl2" position="right">
+                <h1>Right Side</h1>
+                <p:commandButton value="Cancel" oncomplete="PF('sl2').hide()"/>
+            </p:sidebar>
+            <p:sidebar widgetVar="sl3" position="top">
+                <h1>Top Side</h1>
+                <p:commandButton value="Cancel" oncomplete="PF('sl3').hide();"/>
+            </p:sidebar>
+            <p:sidebar widgetVar="sl4" position="bottom">
+                <h1>Bottom Side</h1>
+                <p:commandButton value="Cancel" oncomplete="PF('sl4').hide();"/>
+            </p:sidebar>
+            <p:sidebar widgetVar="sl5" fullScreen="true">
+                <h1>Full Screen</h1>
+                <p:commandButton value="Cancel" oncomplete="PF('sl5').hide();"/>
+            </p:sidebar>
+        </h:form>
+    </h:body>
+</html>
