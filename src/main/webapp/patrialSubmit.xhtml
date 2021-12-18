@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Patrial Submit</title>    
+    </h:head>
+    <h:body>
+        Patrial Submit Example
+        <br/>
+        <h:form>
+            <p:panelGrid columns="2">
+                <p:outputLabel for="name" value="Name"/>
+                <p:inputText id="name" />
+                <p:outputLabel for="address" value="First Input"/>
+                <p:inputText id="address" />
+                <p:outputLabel for="secondInput" value="Second Input"/>
+                <p:inputText id="secondInput" />
+                <p:commandButton value="Without patrial" partialSubmit="false" process="name"/>
+                <p:commandButton value="With patrial" partialSubmit="true" process="name, address"/>
+            </p:panelGrid>
+            
+            <p:log/>
+        </h:form>
+    </h:body>
+</html>
