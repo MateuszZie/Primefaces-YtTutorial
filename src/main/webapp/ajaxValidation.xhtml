@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ajax Selectors</title>    
+    </h:head>
+    <h:body>
+        Ajax Selectos
+        <br/>
+        <h:form>
+            <p:panel id="panel" header="Validation Panel">
+                <p:messages id="main"/>
+                <p:panelGrid columns="3">
+                    <p:outputLabel for="name" value="First Name"/>
+                    <p:inputText id="name" value="#{ajaxSelector.firstName}" required="true" label="Frist Name:">
+                        <f:validateLength minimum="4"/>
+                    </p:inputText>
+                    <p:message for="name" display="icon"/>   
+                    
+                    <p:outputLabel for="surname" value="Last Name"/>
+                    <p:inputText id="surname" value="#{ajaxSelector.lastName}" required="true" label="Last Name:">
+                        <f:validateLength minimum="4"/>
+                        <p:ajax update="ajmsg" event="keyup"/>
+                    </p:inputText>
+                    <p:message id="ajmsg" for="surname" display="icon"/>      
+                </p:panelGrid>
+                <p:commandButton update="panel" value="Dispaly"/>
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</html>
