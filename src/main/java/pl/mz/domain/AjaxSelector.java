@@ -6,6 +6,8 @@
 package pl.mz.domain;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,5 +21,11 @@ import lombok.Setter;
 @Setter
 @RequestScoped
 public class AjaxSelector {
+
     private String firstName, lastName, gender;
+
+    public void display() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
+                "Hello " + firstName + " " + lastName));
+    }
 }

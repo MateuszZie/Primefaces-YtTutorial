@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ajax Process</title>    
+    </h:head>
+    <h:body>
+        Ajax Process
+        <br/>
+        <h:form>
+            <p:panelGrid columns="2" id="panel">
+                <f:facet name="header">
+                    <p:messages/>
+                </f:facet>
+                <p:outputLabel value="First name"/>
+                <p:inputText value="#{ajaxSelector.firstName}"/>
+                <p:outputLabel value="Last name"/>
+                <p:inputText id="last" value="#{ajaxSelector.lastName}" required="true" requiredMessage="Last name is required"/>
+            </p:panelGrid>
+            <p:panelGrid columns="6">
+                <p:commandButton value="All" process="@all" update="panel" action="#{ajaxSelector.display()}"/>
+                <p:commandButton value="Form" process="@form" update="panel" action="#{ajaxSelector.display()}"/>
+                <p:commandButton value="This" process="@this" update="panel" action="#{ajaxSelector.display()}"/>
+                <p:commandButton value="None" process="@none" update="panel" action="#{ajaxSelector.display()}"/>
+                <p:commandButton value="Parent" process="@parent" update="panel" action="#{ajaxSelector.display()}"/>
+                <p:commandButton value="Last Name" process="@this,last" update="panel" action="#{ajaxSelector.display()}"/>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
