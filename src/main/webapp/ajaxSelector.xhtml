@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ajax Selectors</title>    
+    </h:head>
+    <h:body>
+        Ajax Selectos
+        <br/>
+        <h:form>
+            <p:panel header="Selector Panel">
+                <p:messages/>
+                <p:panelGrid columns="4">
+                    <p:outputLabel for="name" value="First Name"/>
+                    <p:inputText id="name" value="#{ajaxSelector.firstName}" required="true" label="Frist Name:">
+                        <f:validateLength minimum="4"/>
+                    </p:inputText>
+                    <p:message for="name"/>
+                    <p:outputLabel value="#{ajaxSelector.firstName}"/>
+                    
+                    <p:outputLabel for="surname" value="Lastt Name"/>
+                    <p:inputText id="surname" value="#{ajaxSelector.lastName}" required="true" label="Last Name:"/>
+                    <p:message for="surname"/>
+                    <p:outputLabel value="#{ajaxSelector.lastName}"/>
+                    
+                    <p:outputLabel for="gender" value="Gender"/>
+                    <h:selectOneMenu id="gender" value="#{ajaxSelector.gender}" required="true" label="Gender:">
+                        <f:selectItem itemLabel="SelectGender" itemValue="" noSelectionOption="true"/>
+                        <f:selectItem itemLabel="Male" itemValue="male"/>
+                        <f:selectItem itemLabel="Famle" itemValue="famle"/>
+                    </h:selectOneMenu>
+                    <p:message for="gender"/>
+                    <p:outputLabel value="#{ajaxSelector.gender}"/>
+                </p:panelGrid>
+            </p:panel>
+            <p:panelGrid columns="4">
+                <p:commandButton update="@(form)" value="All forms"/>
+                <p:commandButton update="@(.ui-panel)" value="All panels"/>
+                <p:commandButton process="@(.ui-panel :input)" update="@(.ui-panel)" value="Inputs of panel"/>
+                <p:commandButton process="@(.ui-panel :input:not(select))" update="@(.ui-panel)" value="Input without select"/>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
