@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ajax Search</title>    
+    </h:head>
+    <h:body>
+        Ajax Search
+        <br/>
+        <h:form>
+            <p:panel header="Search Panel">
+                <p:messages/>
+                <p:panelGrid columns="4">
+                    <p:outputLabel for="name" value="First Name"/>
+                    <p:inputText id="name" value="#{ajaxSelector.firstName}" required="true" label="Frist Name:">
+                        <f:validateLength minimum="4"/>
+                    </p:inputText>
+                    <p:message for="name"/>
+                    <p:outputLabel value="#{ajaxSelector.firstName}"/>                                
+                    <p:outputLabel for="gender" value="Gender"/>
+                    <h:selectOneMenu id="gender" value="#{ajaxSelector.gender}" required="true" label="Gender:">
+                        <f:selectItem itemLabel="SelectGender" itemValue="" noSelectionOption="true"/>
+                        <f:selectItem itemLabel="Male" itemValue="male"/>
+                        <f:selectItem itemLabel="Famle" itemValue="famle"/>
+                    </h:selectOneMenu>
+                    <p:message for="@previous"/>
+                    <p:outputLabel value="#{ajaxSelector.gender}"/>
+                </p:panelGrid>
+            </p:panel>
+            <p:panelGrid columns="4">
+                <p:commandButton process="@parent:@parent" update="@(form)" value="Proces Form"/>
+                <p:commandButton process="@form:@child(1):name" update="@form" value="Proces Name"/>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
