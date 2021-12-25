@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ajax Status</title>    
+    </h:head>
+    <h:body>
+        Ajax Status
+        <br/>
+        <p:ajaxStatus delay="8000">
+            <f:facet name="default">
+                <p:outputLabel value="Status: Not downloaded"/>
+            </f:facet>
+            <f:facet name="start">
+                <p:graphicImage value="resoursce/images/star.png"/>
+            </f:facet>
+            <f:facet name="complete">
+                <p:outputLabel value="Status: Downloaded"/>
+            </f:facet>
+        </p:ajaxStatus>
+        <p:ajaxStatus onstart="PF('dialog').show()" onsuccess="PF('dialog').hide()"/>
+        <p:dialog widgetVar="dialog" modal="true" >
+            <p:graphicImage value="resoursce/images/star.png"/>
+        </p:dialog>
+        <h:form>
+            <p:commandButton value="Download"/>
+        </h:form>
+    </h:body>
+</html>
