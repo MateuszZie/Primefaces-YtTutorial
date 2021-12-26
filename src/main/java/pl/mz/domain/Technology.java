@@ -9,6 +9,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -20,6 +21,7 @@ import lombok.Setter;
 @RequestScoped
 @Named
 @AllArgsConstructor
+@NoArgsConstructor
 public class Technology {
     
     private String name, developedBy, year;
