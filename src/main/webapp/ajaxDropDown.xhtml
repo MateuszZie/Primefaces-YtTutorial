@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ajax Drop Down</title>    
+    </h:head>
+    <h:body>
+        Ajax Drop Down
+        <br/>
+        <h:form>
+            <p:panel header="Select Brand and Model">
+                <p:growl id="msg" showDetail="true"/>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="brand" value="Select Brand: "/>
+                    <p:selectOneMenu id="brand" value="#{ajaxDropDown.brand}">
+                        <p:ajax update="model" listener="#{ajaxDropDown.setModels()}"/>
+                        <f:selectItem itemLabel="Select Brand" noSelectionOption="true"/>
+                        <f:selectItems value="#{ajaxDropDown.allBrand}"/> 
+                    </p:selectOneMenu>
+                    <p:outputLabel for="model" value="Select Model: "/>
+                    <p:selectOneMenu id="model" value="#{ajaxDropDown.model}">
+                        <f:selectItem itemLabel="Select Model" noSelectionOption="true"/>
+                        <f:selectItems value="#{ajaxDropDown.allModel}"/> 
+                    </p:selectOneMenu>
+                </p:panelGrid>                
+            </p:panel>
+            <p:separator/>
+            <p:commandButton value="Dispaly" update="msg" action="#{ajaxDropDown.display()}"/>
+        </h:form>
+    </h:body>
+</html>
