@@ -11,13 +11,14 @@
     <h:body>
         Chips
         <br/>
-        <h:form>
+        <h:form>         
             <h:panelGrid columns="2">
                 <p:outputLabel value="Add Color"/>
-                <p:chips />
+                <p:chips/>
                 <p:outputLabel for="display" value="Avaiable Colors"/>
-                <p:chips id="display" value="#{colors.colors}"/>
+                <p:chips id="display" value="#{colors.colors}"/>          
             </h:panelGrid>
+            <p:commandButton rendered="false"/>
         </h:form>
     </h:body>
 </html>
