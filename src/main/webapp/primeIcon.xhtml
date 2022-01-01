@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Prime Icons and Buttons</title>    
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+    </h:head>
+    <h:body>
+        Prime Icons and Buttons example.
+        <br/>
+        <br/>
+        <h:form>
+            <p:growl id="msg"/>
+            <i class="pi pi-check"></i>
+            <i class="pi pi-times"></i>
+            <i class="pi pi-spin pi-spinner"></i>
+            <i class="pi pi-id-card"></i>
+            <p:button value="Button" icon="pi pi-check" style="margin-right: 20px; margin-left: 20px"/>
+            <p:commandButton value="Command Button" icon="pi pi-check" style="margin-right: 20px"/>
+            <p:link outcome="index" value="Link" style="margin-right: 20px"/>
+            <p:commandLink value="Comand Link" style="margin-right: 20px"/>
+            <p:linkButton value="Link Button" outcome="index" icon="pi pi-check" style="margin-right: 20px" />
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Basic:"/>
+                <p:splitButton  update="msg" action="#{primIconButtons.save()}" value="Save" icon="pi pi-save">
+                    <p:menuitem update="msg" action="#{primIconButtons.update()}" value="Update" icon="pi pi-refresh"/>
+                    <p:menuitem ajax="false" action="#{primIconButtons.delete()}" value="Delete" icon="pi pi-times"/>
+                    <p:separator/>
+                    <p:menuitem url="http://www.google.com" value="Google" icon="pi pi-home"/>
+                </p:splitButton>
+                <p:outputLabel value="Programatic Menu:"/>
+                <p:splitButton  update="msg" model="#{primIconButtons.menuModel}" action="#{primIconButtons.save()}" value="Save" icon="pi pi-save"/>
+                <p:outputLabel value="Addvanced"/>
+                <p:splitButton update="msg" action="#{primIconButtons.save()}" value="Save" icon="pi pi-save" filter="true" filterMatchMode="startsWith">
+                    <p:submenu label="Ajax">
+                        <p:menuitem update="msg" action="#{primIconButtons.save()}" value="Save" icon="pi pi-save"/>
+                        <p:menuitem update="msg" action="#{primIconButtons.update()}" value="Update" icon="pi pi-refresh"/>
+                    </p:submenu>
+                    <p:submenu label="Non-Ajax">
+                        <p:menuitem ajax="false" action="#{primIconButtons.delete()}" value="Delete" icon="pi pi-times"/>
+                    </p:submenu>
+                    <p:submenu label="Navigation">
+                        <p:menuitem url="http://www.google.com" value="Google" icon="pi pi-home"/>
+                        <p:menuitem  value="Some Code" icon="pi pi-star"/>
+                    </p:submenu>
+                </p:splitButton>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
