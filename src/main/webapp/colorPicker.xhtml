@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Collor Picker</title>  
+    </h:head>
+    <h:body>
+        Color Picker example
+        <br/>
+        <h:form id="lol">         
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel value="InLine:"/>
+                <p:colorPicker value="#{colorPicker.color}" mode="inline"/>
+                <p:outputLabel value="PopUp:"/>
+                <p:colorPicker value="#{colorPicker.popUpColor}"/>
+            </h:panelGrid>
+            <p:commandButton value="Submit" update="lol"/>
+            <br/>
+            <p:outputLabel rendered="#{not empty colorPicker.color}" value="Inline color: #{colorPicker.color}"/>
+            <br/>
+            <p:outputLabel rendered="#{not empty colorPicker.popUpColor}" value="PopUp color: #{colorPicker.popUpColor}"/>
+        </h:form>
+    </h:body>
+</html>
