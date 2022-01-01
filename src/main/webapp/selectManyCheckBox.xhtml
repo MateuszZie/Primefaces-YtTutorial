@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Select Check Box Menu</title>    
+    </h:head>
+    <h:body>
+        Select Check Box Menu
+        <br/>
+        <h:form>
+            <h3>Basic Layout</h3>
+            <p:selectManyCheckbox value="#{selectManyCheckBox.courses}">
+                <f:selectItem itemLabel="JSF" itemValue="JSF"/>
+                <f:selectItem itemLabel="Primafaces" itemValue="Prmafases"/>
+                <f:selectItem itemLabel="Futter" itemValue="Futter"/>
+            </p:selectManyCheckbox>
+            <h3>Gid Layout</h3>
+            <p:selectManyCheckbox value="#{selectManyCheckBox.countries}" layout="grid" columns="3">
+                <f:selectItems value="#{selectManyCheckBox.countryList}" var="country" itemLabel="#{country}" itemValue="#{country}"/>
+            </p:selectManyCheckbox>
+            <h3>Responsive Layout</h3>
+            <p:selectManyCheckbox value="#{selectManyCheckBox.countries}" layout="responsive" columns="4">
+                <f:selectItems value="#{selectManyCheckBox.countryList}" var="country" itemLabel="#{country}" itemValue="#{country}"/>
+            </p:selectManyCheckbox>
+            <h3>Custom Layout</h3>
+            <p:outputPanel>
+                <p:selectManyCheckbox id="custom" value="#{selectManyCheckBox.courses}" layout="custom">
+                    <f:selectItem itemLabel="JSF" itemValue="JSF"/>
+                    <f:selectItem itemLabel="Primafaces" itemValue="Prmafases"/>
+                    <f:selectItem itemLabel="Futter" itemValue="Futter"/>
+                </p:selectManyCheckbox>
+
+                <div class="ui-grid ui-grid-responsive">
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4" style="text-align: center">
+                            <p:outputLabel value="JSF Custom" for="c1" style="display: block; margin-bottom: 8px"/>
+                            <p:checkbox id="c1" for="custom" itemIndex="0"/>
+                        </div>
+                        <div class="ui-grid-col-4" style="text-align: center">
+                            <p:outputLabel value="Primaface Custom" for="c2" style="display: block; margin-bottom: 8px"/>
+                            <p:checkbox id="c2" for="custom" itemIndex="1"/>
+                        </div>
+                        <div class="ui-grid-col-4" style="text-align: center">
+                            <p:outputLabel value="Flutter Custom" for="c3" style="display: block; margin-bottom: 8px"/>
+                            <p:checkbox id="c3" for="custom" itemIndex="2"/>                           
+                        </div>
+                    </div>
+                </div> 
+            </p:outputPanel>   
+            <h3>Gruped Layout</h3>
+            <p:selectManyCheckbox value="#{selectManyCheckBox.mobiles}" layout="pageDirection">
+                <f:selectItems value="#{selectManyCheckBox.mobileList}" var="mobile" itemLabel="#{mobile}" itemValue="#{mobile}"/>
+            </p:selectManyCheckbox>
+        </h:form>
+    </h:body>
+</html>

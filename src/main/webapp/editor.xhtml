@@ -16,7 +16,7 @@
                 <p:commandButton value="Clear" type="buttoon" onclick="PF('editorWidget').clear()" icon="pi pi-trash"/>
             </h:panelGrid>
             <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
-                <h:outputText id="display" value="#{editor.content}" escape="fade"/>
+                <h:outputText id="display" value="#{editor.content}" escape="true"/>
             </p:dialog>
         </h:form>
     </h:body>
