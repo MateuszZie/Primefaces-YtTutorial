@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Data Picker</title>    
+        <script type="text/javascript">
+    //<![CDATA[
+    function dateTemplateFunc(date) {
+        return '<span style="background-color:' + ((date.day < 21 && date.day > 10) ? '#81C784' : 'inherit') + ';border-radius:50%;width: 2.5rem;height: 2.5rem;line-height: 2.5rem;display: flex;align-items: center;justify-content: center;">' + date.day + '</span>';
+    }
+
+    //]]>
+        </script>
+    </h:head>
+    <h:body>
+        Data Picker
+        <br/>
+        <h:form>
+            <p:growl id="msg" showDetail="true" skipDetailIfEqualsSummary="true"/>
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel for="inline" value="Inline:"/>
+                <p:datePicker id="inline" value="#{datePicker.date}" inline="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="popup" value="PopUp:"/>
+                <p:datePicker id="popup" value="#{datePicker.date}" readonlyInput="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="multi" value="Multiple Selection:"/>
+                <p:datePicker id="multi" value="#{datePicker.multiDate}" selectionMode="multiple" readonlyInput="true" >
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayMultiDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="range" value="Range Selection:"/>
+                <p:datePicker id="range" value="#{datePicker.multiDate}" selectionMode="range" readonlyInput="true" >
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayMultiDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="month" value="Month Picker:"/>
+                <p:datePicker id="month" value="#{datePicker.date}" pattern="MM/yyyy" view="month" yearNavigator="true" yearRange="2020:2022" readonlyInput="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="template" value="Template Picker:"/>
+                <p:datePicker id="template" value="#{datePicker.date}" dateTemplate="dateTemplateFunc" readonlyInput="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="disabled" value="Disabled Date/Days Picker:"/>
+                <p:datePicker id="disabled" value="#{datePicker.date}" disabledDates="#{datePicker.disabledDate}" disabledDays="#{datePicker.disabledDays}" readonlyInput="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="minMax" value="Min Max Picker:"/>
+                <p:datePicker id="minMax" value="#{datePicker.date}" mindate="#{datePicker.minDate}" maxdate="#{datePicker.maxDate}" readonlyInput="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="button" value="Button Picker:"/>
+                <p:datePicker id="button" value="#{datePicker.date}"  readonlyInput="true" showIcon="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="buttonBar" value="Button Bar Picker:"/>
+                <p:datePicker id="buttonBar" value="#{datePicker.date}"  readonlyInput="true" showButtonBar="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="multiMonth" value="Multi Month Picker:"/>
+                <p:datePicker id="multiMonth" value="#{datePicker.date}" numberOfMonths="3" readonlyInput="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDate}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="time" value="Time Picker:"/>
+                <p:datePicker id="time" value="#{datePicker.date}" showTime="true" readonlyInput="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayDateTime}" update="msg"/>
+                </p:datePicker>
+                
+                <p:outputLabel for="timeOnly" value="Time Only Picker:"/>
+                <p:datePicker id="timeOnly" value="#{datePicker.date}" timeOnly="true" readonlyInput="true">
+                    <p:ajax event="dateSelect" listener="#{datePicker.displayTime}" update="msg"/>
+                </p:datePicker>
+                        
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
